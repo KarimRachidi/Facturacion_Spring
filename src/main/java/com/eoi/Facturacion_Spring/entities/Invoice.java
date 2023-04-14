@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Entity
 @Table(name = "invoices")
 @Getter
@@ -17,10 +19,9 @@ public class Invoice {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(name = "nombre")
-    private String nombre;
-    @Column(name = "descripcion")
-    private String descripcion;
-    @Column(name = "price")
-    private double price;
+    @Column(name = "date")
+    private Date date;
+
+
+
 }

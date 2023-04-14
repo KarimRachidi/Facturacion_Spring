@@ -15,7 +15,7 @@ public class ProductController {
     //No necesitamos crear una instancia de ProductService porque ya está inyectada en el constructor
     private ProductService productService; //Inyeccion de dependencias, se crea una instancia de ProductService automáticamente y se usa cuando se necesite.
 
-    @GetMapping("/") //Cuando se haga una petición GET a /products/ se ejecuta este método (showProduct
+    @GetMapping(value = {"/"}) //Cuando se haga una petición GET a /products/ se ejecuta este método (showProduct
     //Model es el objeto que se le pasa a la vista para que sepa que tiene que mostrar en la pantalla.
     public String showProduct(Model model) {
         //Creamos atributo "products" que contiene todos los productos mediante el método findAll() de ProductService
