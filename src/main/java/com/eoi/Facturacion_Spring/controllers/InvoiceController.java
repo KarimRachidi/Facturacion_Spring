@@ -1,7 +1,9 @@
+package com.eoi.Facturacion.controllers;
 
-package com.eoi.Facturacion_Spring.controllers;
 
+import com.eoi.Facturacion_Spring.entities.Customer;
 import com.eoi.Facturacion_Spring.entities.Invoice;
+import com.eoi.Facturacion_Spring.services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,13 +14,15 @@ import org.springframework.web.bind.annotation.*;
 public class InvoiceController {
     @Autowired
     private com.eoi.Facturacion_Spring.services.invoice.InvoiceService invoiceService;
+
+    private CustomerService customerService;
     //Para acceder a los métodos
 
     @GetMapping(value = {"/",""})
     //Model es el objeto que utiliza Spring para pasar al html los datos de la BD
     public String showInvoices(Model model){
         //
-        model.addAttribute("invoice",invoiceService.findAll());
+        model.addAttribute("invoices",invoiceService.findAll());
         //Devuelve el HTML
         return "invoice-list";
     }
@@ -33,8 +37,10 @@ public class InvoiceController {
         return "redirect:/invoices/";
     }
     @GetMapping("/edit/{id}")
-    public String showEditInvoiceForm(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("invoice", invoiceService.findById(id));
+    public String showEditInvoiceForm(@PathVariable Long id, Model model) {
+        Customer customer = customerService.getCustomersById(id);
+        model.addAttribute("customer", customer);
+        model.addAttribute("allInvoices", invoiceService.getAllInvoices());
         return "invoice-form";
     }
     @GetMapping("/delete/{id}")

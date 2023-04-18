@@ -1,4 +1,4 @@
-package com.eoi.Facturacion_Spring.services.invoice;
+package com.eoi.Facturacion_Spring.services;
 
 import com.eoi.Facturacion_Spring.entities.Invoice;
 import com.eoi.Facturacion_Spring.repositories.InvoiceRepository;
@@ -26,5 +26,8 @@ public class InvoiceService {
     }
     public void deleteById(Long id) {
         invoiceRepository.deleteById(id);
+    }
+    public List<Invoice> getAllInvoices() {
+        return invoiceRepository.findAll();
     }
 }
