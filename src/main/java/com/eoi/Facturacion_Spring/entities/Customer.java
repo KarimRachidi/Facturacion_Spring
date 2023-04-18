@@ -30,7 +30,7 @@ public class Customer {
 
     @JsonManagedReference
     @OneToMany(mappedBy = "customer",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-    private List<Invoice> invoiceList = new ArrayList<>();
+    private List<Invoice> invoiceList;
 
     @JsonManagedReference
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)

@@ -59,7 +59,6 @@ public class CustomerController {
     }
 
     @GetMapping("/{id}/invoices/new")
-
     public String newInvoiceForm(@PathVariable("id") Long id, Model model) {
         Optional<Customer> customer = customerService.findById(id);
         if (customer.isPresent()) {
@@ -68,11 +67,10 @@ public class CustomerController {
             model.addAttribute("invoice",invoice);
             return "customer-invoice-form";
         } else {
-            return "error-page";
+            return "error";
         }
     }
     @PostMapping("/{id}/invoices/new")
-
     public String createInvoice(@PathVariable("id") Long id, @ModelAttribute("invoice") Invoice invoice) {
         Optional<Customer> customer = customerService.findById(id);
         if(customer.isPresent()){
