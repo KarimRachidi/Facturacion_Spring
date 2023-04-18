@@ -2,6 +2,7 @@ package com.eoi.Facturacion_Spring.controllers;
 
 
 import com.eoi.Facturacion_Spring.entities.Invoice;
+import com.eoi.Facturacion_Spring.services.InvoiceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +14,7 @@ import java.util.Optional;
 public class InvoiceRestController {
 
     @Autowired
-    private com.eoi.Facturacion_Spring.services.invoice.InvoiceService invoiceService;
+    private InvoiceService invoiceService;
     @GetMapping
     public List<Invoice> findAll() {
         return invoiceService.findAll();
