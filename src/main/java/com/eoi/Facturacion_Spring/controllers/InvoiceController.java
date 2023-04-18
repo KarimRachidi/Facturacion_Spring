@@ -1,9 +1,10 @@
-package com.eoi.Facturacion.controllers;
+package com.eoi.Facturacion_Spring.controllers;
 
 
 import com.eoi.Facturacion_Spring.entities.Customer;
 import com.eoi.Facturacion_Spring.entities.Invoice;
 import com.eoi.Facturacion_Spring.services.CustomerService;
+import com.eoi.Facturacion_Spring.services.InvoiceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/invoices")//url
 public class InvoiceController {
     @Autowired
-    private com.eoi.Facturacion_Spring.services.invoice.InvoiceService invoiceService;
+    private InvoiceService invoiceService;
 
     private CustomerService customerService;
     //Para acceder a los métodos

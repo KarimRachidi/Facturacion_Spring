@@ -1,9 +1,10 @@
-package com.eoi.Facturacion.controllers;
+package com.eoi.Facturacion_Spring.controllers;
 
 
 import com.eoi.Facturacion_Spring.entities.Customer;
 import com.eoi.Facturacion_Spring.entities.Invoice;
 import com.eoi.Facturacion_Spring.services.CustomerService;
+import com.eoi.Facturacion_Spring.services.InvoiceService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,7 +22,7 @@ public class CustomerController {
     //Para acceder a los métodos
 
     @Autowired
-    private com.eoi.Facturacion_Spring.services.invoice.InvoiceService invoiceService;
+    private InvoiceService invoiceService;
     //Para acceder a los métodos
 
     @GetMapping(value = {"/",""})
